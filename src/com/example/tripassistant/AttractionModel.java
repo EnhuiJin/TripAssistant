@@ -3,9 +3,9 @@ package com.example.tripassistant;
 public class AttractionModel {
 
 	private String attName;
-	private String attAddress;
 	private int attTravelTime;
 	private int attDuration;
+	private LocationModel loc;
 
 	public String getAttName() {
 		return attName;
@@ -15,13 +15,7 @@ public class AttractionModel {
 		this.attName = attName;
 	}
 
-	public String getAttAddress() {
-		return attAddress;
-	}
-
-	public void setAttAddress(String attAddress) {
-		this.attAddress = attAddress;
-	}
+	
 
 	public int getAttTravelTime() {
 		return attTravelTime;

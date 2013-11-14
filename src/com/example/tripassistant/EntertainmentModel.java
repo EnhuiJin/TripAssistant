@@ -3,9 +3,18 @@ package com.example.tripassistant;
 public class EntertainmentModel {
 
 	private String entmName;
-	private String entmAddress;
-	private int entmTravelTime;
-	private int entmDuration;
+	private int entmStartTime;
+	private double entmTravelTime;
+	private double entmDuration;
+	private LocationModel loc;
+	
+	public EntertainmentModel(String entmName,int entmStartTime,double entmTravelTime,double entmDuration,LocationModel loc){
+		this.entmName = entmName;
+		this.entmStartTime = entmStartTime;
+		this.entmTravelTime = entmTravelTime;
+		this.entmDuration = entmDuration;
+		this.loc = loc;
+	}
 
 	public String getEntmName() {
 		return entmName;
@@ -15,15 +24,23 @@ public class EntertainmentModel {
 		this.entmName = entmName;
 	}
 
-	public String getEntmAddress() {
-		return entmAddress;
+	public LocationModel getEntmLoc() {
+		return loc;
 	}
 
-	public void setEntmAddress(String entmAddress) {
-		this.entmAddress = entmAddress;
+	public void setEntmLoc(LocationModel loc) {
+		this.loc = loc;
+	}
+	
+	public void setEntmStartTime(int entmStartTime){
+		this.entmStartTime = entmStartTime;
+	}
+	
+	public int getEntmStartTime(){
+		return entmStartTime;
 	}
 
-	public int getEntmTravelTime() {
+	public double getEntmTravelTime() {
 		return entmTravelTime;
 	}
 
@@ -31,7 +48,7 @@ public class EntertainmentModel {
 		this.entmTravelTime = entmTravelTime;
 	}
 
-	public int getEntmDuration() {
+	public double getEntmDuration() {
 		return entmDuration;
 	}
 
