@@ -12,6 +12,10 @@ public class LocationModel {
 		this.address = address;
 		
 	}
+	
+	public LocationModel(){
+		
+	}
 
 	public long getLongitude() {
 		return longitude;

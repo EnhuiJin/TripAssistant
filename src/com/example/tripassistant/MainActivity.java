@@ -10,14 +10,20 @@ import android.view.View;
 
 public class MainActivity extends Activity {
 	private TripAssistantDatabaseHelper db;
-	private EntertainmentModel entm;
-	private LocationModel loc;
+	private EntertainmentModel[] entm = new EntertainmentModel[10];
+	private AttractionModel att;
+	private RestaurantModel rest;
+	private LocationModel[] loc = new LocationModel[10];
 	
 	
 	
-	public void insertRecord(EntertainmentModel entm){
+	public void insertRecord(){
+		loc[0] = new LocationModel(402394,412322,"broadway");
+		entm[0] = new EntertainmentModel("king lion","1330","1","2.5",loc[0]);
+	
 		db = new TripAssistantDatabaseHelper(MainActivity.this);
-		db.insertEntertainment(entm);
+		
+		db.insertEntertainment(entm[0]);
 		db.close();
 		
 	}
@@ -27,6 +33,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//insertRecord();
 	}
 
 	@Override
@@ -39,9 +46,7 @@ public class MainActivity extends Activity {
 	
 	//add data here
 	public void entertainmentSelect(View view) {
-		loc = new LocationModel(402394,412322,"broadway");
-		entm = new EntertainmentModel("king lion",1330,1,2.5,loc);
-		insertRecord(entm);
+		
 		Intent intent = new Intent(this, EntertainmentSelectActivity.class);
 		startActivity(intent);
 	}

@@ -3,17 +3,21 @@ package com.example.tripassistant;
 public class EntertainmentModel {
 
 	private String entmName;
-	private int entmStartTime;
-	private double entmTravelTime;
-	private double entmDuration;
+	private String entmStartTime;
+	private String entmTravelTime;
+	private String entmDuration;
 	private LocationModel loc;
 	
-	public EntertainmentModel(String entmName,int entmStartTime,double entmTravelTime,double entmDuration,LocationModel loc){
+	public EntertainmentModel(String entmName,String entmStartTime,String entmTravelTime,String entmDuration,LocationModel loc){
 		this.entmName = entmName;
 		this.entmStartTime = entmStartTime;
 		this.entmTravelTime = entmTravelTime;
 		this.entmDuration = entmDuration;
 		this.loc = loc;
+	}
+	
+	public EntertainmentModel(){
+		
 	}
 
 	public String getEntmName() {
@@ -32,27 +36,27 @@ public class EntertainmentModel {
 		this.loc = loc;
 	}
 	
-	public void setEntmStartTime(int entmStartTime){
+	public void setEntmStartTime(String entmStartTime){
 		this.entmStartTime = entmStartTime;
 	}
 	
-	public int getEntmStartTime(){
+	public String getEntmStartTime(){
 		return entmStartTime;
 	}
 
-	public double getEntmTravelTime() {
+	public String getEntmTravelTime() {
 		return entmTravelTime;
 	}
 
-	public void setEntmTravelTime(int entmTravelTime) {
+	public void setEntmTravelTime(String entmTravelTime) {
 		this.entmTravelTime = entmTravelTime;
 	}
 
-	public double getEntmDuration() {
+	public String getEntmDuration() {
 		return entmDuration;
 	}
 
-	public void setEntmDuration(int entmDuration) {
+	public void setEntmDuration(String entmDuration) {
 		this.entmDuration = entmDuration;
 	}
 
