@@ -6,6 +6,7 @@ public class UserModel {
 	private String email;
 	private String password;
 	private String photo;
+	
 	public String getUserName() {
 		return userName;
 	}
