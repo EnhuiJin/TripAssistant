@@ -16,5 +16,23 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="done">Done</string>
+    <string name="Logout">Logout</string>
+    <string name="UserID">UserID</string>
+    <string name="UserNameemail">UserName/email</string>
+    <string name="UserName">UserName</string>
+    <string name="Password">Password</string>
+    <string name="ConfirmPassword">ConfirmPassword</string>
+    <string name="Email">Email</string>
+    <string name="City">City</string>
+    <string name="city_prompt">Choose a country</string>
+
+    <string-array name="City_array">
+        <item>New York</item>
+    </string-array>
+
+    <string name="title_activity_profile">ProfileActivity</string>
 
 </resources>

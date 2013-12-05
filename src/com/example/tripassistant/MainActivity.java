@@ -88,8 +88,9 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.cart:
 	            goToCart();
 	            return true;
-	        case R.id.setting:
+	        case R.id.log:
 	        	goToSetting();
+	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }

@@ -48,11 +48,11 @@
         </activity>
         <activity
             android:name="com.example.tripassistant.SettingActivity"
-            android:label="@string/title_activity_setting" 
+            android:label="@string/title_activity_setting"
             android:parentActivityName="com.example.tripassistant.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tripassistant.MainActivity"/>
+                android:value="com.example.tripassistant.MainActivity" />
         </activity>
         <activity
             android:name="com.example.tripassistant.CartActivity"
@@ -62,7 +62,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tripassistant.MainActivity" />
         </activity>
-       
+        <activity
+            android:name="com.example.tripassistant.ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
     </application>
 
 </manifest>

@@ -5,14 +5,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class CartActivity extends Activity {
+public class ProfileActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_cart);
+		setContentView(R.layout.activity_profile);
 	}
+
+
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,5 +56,6 @@ public class CartActivity extends Activity {
 		Intent intent =new Intent(this,CartActivity.class);
 		startActivity(intent);
 	}
+
 
 }
