@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class SettingActivity extends Activity {
 
@@ -31,7 +32,7 @@ public class SettingActivity extends Activity {
 	        case R.id.cart:
 	            goToCart();
 	            return true;
-	        case R.id.setting:
+	        case R.id.log:
 	        	goToSetting();
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -51,6 +52,12 @@ public class SettingActivity extends Activity {
 	
 	public void goToCart(){
 		Intent intent =new Intent(this,CartActivity.class);
+		startActivity(intent);
+	}
+	
+	public void viewProfile(View view){
+		//check if sign up or sign in successful 
+		Intent intent=new Intent(this,ProfileActivity.class);
 		startActivity(intent);
 	}
 

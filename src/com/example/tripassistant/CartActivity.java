@@ -31,7 +31,7 @@ public class CartActivity extends Activity {
 	        case R.id.cart:
 	            goToCart();
 	            return true;
-	        case R.id.setting:
+	        case R.id.log:
 	        	goToSetting();
 	        default:
 	            return super.onOptionsItemSelected(item);
