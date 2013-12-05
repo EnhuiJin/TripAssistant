@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="18" />
 
     <application
@@ -22,33 +22,47 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.example.tripassistant.EntertainmentSelectActivity"
-            android:label="@string/entertainment" 
-			android:parentActivityName="com.example.tripassistant.MainActivity" >
+            android:label="@string/entertainment"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tripassistant.MainActivity" />
         </activity>
-        
         <activity
             android:name="com.example.tripassistant.AttractionSelectActivity"
-            android:label="@string/attraction" 
-			android:parentActivityName="com.example.tripassistant.MainActivity" >
+            android:label="@string/attraction"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tripassistant.MainActivity" />
         </activity>
-        
         <activity
             android:name="com.example.tripassistant.RestaurantSelectActivity"
-            android:label="@string/restaurant" 
-			android:parentActivityName="com.example.tripassistant.MainActivity" >
+            android:label="@string/restaurant"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tripassistant.MainActivity" />
         </activity>
+        <activity
+            android:name="com.example.tripassistant.SettingActivity"
+            android:label="@string/title_activity_setting" 
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tripassistant.MainActivity"/>
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.CartActivity"
+            android:label="@string/title_activity_cart"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tripassistant.MainActivity" />
+        </activity>
+       
     </application>
 
 </manifest>
