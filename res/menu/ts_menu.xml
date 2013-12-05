@@ -7,14 +7,12 @@
     <item android:id="@+id/cart"
           
           android:title="Cart"
-          android:showAsAction="ifRoom"/>
+          android:showAsAction="ifRoom" 
+          />
     
      <item android:id="@+id/setting"
           
           android:title="Setting"
-<<<<<<< HEAD
-          android:showAsAction="ifRoom"/>
-=======
           android:showAsAction="ifRoom">
           <menu>
             <item android:id="@+id/log"
@@ -22,7 +20,6 @@
            
         </menu>
        </item>
->>>>>>> pr/4
     
     
 
