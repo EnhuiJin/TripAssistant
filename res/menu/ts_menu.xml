@@ -12,7 +12,17 @@
      <item android:id="@+id/setting"
           
           android:title="Setting"
+<<<<<<< HEAD
           android:showAsAction="ifRoom"/>
+=======
+          android:showAsAction="ifRoom">
+          <menu>
+            <item android:id="@+id/log"
+                  android:title="login/logout" />
+           
+        </menu>
+       </item>
+>>>>>>> pr/4
     
     
 
