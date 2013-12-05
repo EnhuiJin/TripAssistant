@@ -7,14 +7,12 @@
     <item android:id="@+id/cart"
           
           android:title="Cart"
-          android:showAsAction="ifRoom" 
-          />
+          android:showAsAction="ifRoom"/>
     
      <item android:id="@+id/setting"
           
           android:title="Setting"
-          android:showAsAction="ifRoom"
-           />
+          android:showAsAction="ifRoom"/>
     
     
 

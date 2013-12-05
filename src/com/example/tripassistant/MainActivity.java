@@ -1,12 +1,13 @@
 package com.example.tripassistant;
 
 
+import java.util.List;
+
+import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-
-
-
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,20 +16,47 @@ public class MainActivity extends FragmentActivity {
 
 	private TripAssistantDatabaseHelper db;
 	private EntertainmentModel[] entm = new EntertainmentModel[10];
-	private AttractionModel att;
-	private RestaurantModel rest;
+//	private AttractionModel att;
+//	private RestaurantModel rest;
 	private LocationModel[] loc = new LocationModel[10];
+	private UserInfoModel user;
+	private ScheduleModel sch;
 	
+	private RecommendationIntro recom;
+
 	
 	public void insertRecord(){
 		loc[0] = new LocationModel(402394,412322,"broadway");
 		entm[0] = new EntertainmentModel("king lion","1330","1","2.5",loc[0]);
+		entm[1] = new EntertainmentModel("soho", "1111", "11", "22", loc[0]);
+		
+		user = new UserInfoModel();
+		user.setUname("09gavin");
+		user.setEmail("gs@gmail.com");
+		user.setPw("gs");
+		user.setCity("brooklyn");
+		
+		sch = new ScheduleModel();
+		sch.setSchStartTime("1234");
+		sch.setSchEndTime("4321");
+		sch.setEntmList(entm[0]);
+		sch.setEntmList(entm[1]);
 	
 		db = new TripAssistantDatabaseHelper(MainActivity.this);
 		
-		db.insertEntertainment(entm[0]);
-		db.close();
+//		db.insertEntertainment(entm[0]);
+//		db.insertEntertainment(entm[1]);
+//		db.insertUserInfo(user);
+//		db.insertHistory(sch);
 		
+//		UserInfoModel u = db.login("gs@gmail.com");
+//		Log.i("test1", u.getPw() + " " + u.getCity());
+
+		List<ScheduleModel> sl = db.getAllHistory();
+		for(ScheduleModel sm: sl){
+			Log.i("test", sm.getSchEndTime() + " : " + sm.getSchEndTime() + " : " + sm.getEntmList().toString());
+		}
+		db.close();	
 	}
 	
 
@@ -36,7 +64,11 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//insertRecord();
+//		insertRecord();
+		
+//		recom = new RecommendationIntro();
+//		List<RecommendedItem> recommendation = recom.ItemBasedRecommender(1, 2);
+//		Log.i("RECOMMENDATION", recommendation.toString());
 	}
 
 	@Override

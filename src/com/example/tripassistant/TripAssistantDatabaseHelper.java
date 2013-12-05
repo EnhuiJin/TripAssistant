@@ -3,9 +3,6 @@ package com.example.tripassistant;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -14,8 +11,24 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
-	private static final String DATABASE_NAME = "trips_assistant_db";
+	private static final String DATABASE_NAME = "trips_assistant_db3";
+	
+	private static final String TABLE_USERINFO = "userInfo";
+	private static final String COLUMN_USERINFO_ID = "uid";
+	private static final String COLUMN_USERINFO_UNAME = "uname";
+	private static final String COLUMN_USERINFO_EMAIL = "uemail";
+	private static final String COLUMN_USERINFO_PW = "upw";
+	private static final String COLUMN_USERINFO_CITY = "ucity";
 
+	private static final String TABLE_HISTORY = "history";
+	private static final String COLUMN_HISTORY_ID = "hid";
+	private static final String COLUMN_HISTORY_STARTTIME = "hstarttime";
+	private static final String COLUMN_HISTORY_ENDTIME = "hendtime";
+	
+	private static final String TABLE_HISTORYENTM = "historyEntm";
+	private static final String COLUMN_HISTORYENTM_HID = "hid";
+	private static final String COLUMN_HISTORYENTM_EID = "eid";
+	
 	private static final String TABLE_ENTERTAINMENT = "entertainment";
 	private static final String COLUMN_ENTERTAINMENT_ID = "eid";
 	private static final String COLUMN_ENTERTAINMENT_NAME = "ename";
@@ -45,8 +58,6 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	private static final String COLUMN_LOCATION_ADDRESS = "address";
 	
 	
-	
-	
 	public TripAssistantDatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -54,6 +65,23 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// create trip table
+		
+		db.execSQL("create table " + TABLE_USERINFO + "(" 
+				+ COLUMN_USERINFO_ID + " INTEGER PRIMARY KEY  autoincrement, " 
+				+ COLUMN_USERINFO_UNAME + " text, "
+				+ COLUMN_USERINFO_EMAIL + " text, " 
+				+ COLUMN_USERINFO_PW + " text, "
+				+ COLUMN_USERINFO_CITY + " text)");
+		
+		db.execSQL("create table " + TABLE_HISTORY + "(" 
+				+ COLUMN_HISTORY_ID + " INTEGER PRIMARY KEY  autoincrement, " 
+				+ COLUMN_HISTORY_STARTTIME + " text, " 
+				+ COLUMN_HISTORY_ENDTIME + " text)");
+		
+		db.execSQL("create table " + TABLE_HISTORYENTM + "(" 
+				+ COLUMN_HISTORYENTM_HID + " integer references history(hid), " 
+				+ COLUMN_HISTORYENTM_EID + " integer references entertainment(eid))");
+		
 		db.execSQL("create table " + TABLE_ENTERTAINMENT + "(" + COLUMN_ENTERTAINMENT_ID
 				+ " INTEGER PRIMARY KEY  autoincrement, " + COLUMN_ENTERTAINMENT_NAME
 				+ " text, " + COLUMN_ENTERTAINMENT_LID + " integer references location(lid), "
@@ -78,32 +106,110 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 				+ " long, " + COLUMN_LOCATION_LATITUDE + " long, "	
 				+ COLUMN_LOCATION_ADDRESS + " text)");
 		
-		
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// drop older table if exists
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERINFO);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORYENTM);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_ENTERTAINMENT);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_ATTRACTION);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANT);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOCATION);
 
 		// create tables again
 		onCreate(db);
 	}
 	
-	public long insertLocation(LocationModel loc){
+	public UserInfoModel login(String email){
+		SQLiteDatabase db = this.getReadableDatabase();
+		String user_check = "select * from " + TABLE_USERINFO + " where uemail = ?";
+		Cursor cursor = db.rawQuery(user_check, new String[] {email});
+		cursor.moveToFirst();
+		UserInfoModel user = new UserInfoModel();
+		user.setUname(cursor.getString(1));
+		user.setEmail(cursor.getString(2));
+		user.setPw(cursor.getString(3));
+		user.setCity(cursor.getString(4));
+		cursor.close();
+		return user;
+	}
+	
+	public List<ScheduleModel> getAllHistory(){
+		List<ScheduleModel> sList = new ArrayList<ScheduleModel>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String getAllHistory_query = "select * from " + TABLE_HISTORY;
+		Cursor cursor = db.rawQuery(getAllHistory_query, null);
+
+		// loop through all query results
+		for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+			ScheduleModel sch = new ScheduleModel();
+			sch.setSchStartTime(cursor.getString(1));
+			sch.setSchEndTime(cursor.getString(2));
+
+			long hId = cursor.getInt(0);
+			List<EntertainmentModel> eList = getAllHisEntm(hId);
+			for (EntertainmentModel eModel : eList) {
+				sch.setEntmList(eModel);
+			}
+			sList.add(sch);
+		}
+		cursor.close();
+		return sList;
+	}
+	
+	public List<EntertainmentModel> getAllHisEntm(long hId){
+		List<EntertainmentModel> eList = new ArrayList<EntertainmentModel>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String getAllHisEntm_query = "select * from " + TABLE_ENTERTAINMENT
+				+ " natural join " + TABLE_HISTORYENTM + " where hid = ?";
+		Cursor cursor = db.rawQuery(getAllHisEntm_query,
+				new String[] { Long.toString(hId) });
+
+		for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+			EntertainmentModel entm = new EntertainmentModel();		
+			entm.setEntmName(cursor.getString(1));			
+			entm.setEntmTravelTime(cursor.getString(3));
+			entm.setEntmStartTime(cursor.getString(4));
+			entm.setEntmDuration(cursor.getString(5));			
+			long locid = cursor.getLong(2);
+			LocationModel loc = getLoc(locid);
+			entm.setEntmLoc(loc);
+			eList.add(entm);
+		}
+		cursor.close();
+		return eList;
+	}
+	
+	public long insertUserInfo(UserInfoModel user){
 		ContentValues cv = new ContentValues();
-		cv.put(COLUMN_LOCATION_LONGITUDE, loc.getLongitude());
-		cv.put(COLUMN_LOCATION_LATITUDE, loc.getLatitude());
-		cv.put(COLUMN_LOCATION_ADDRESS, loc.getAddress());
+		cv.put(COLUMN_USERINFO_UNAME, user.getUname());
+		cv.put(COLUMN_USERINFO_EMAIL, user.getEmail());
+		cv.put(COLUMN_USERINFO_PW, user.getPw());
+		cv.put(COLUMN_USERINFO_CITY, user.getCity());
+
+		return getWritableDatabase().insert(TABLE_USERINFO, null, cv);
+	}
+	
+	public long insertHistory(ScheduleModel sch){
+		ContentValues cv = new ContentValues();
+		cv.put(COLUMN_HISTORY_STARTTIME, sch.getSchStartTime());
+		cv.put(COLUMN_HISTORY_ENDTIME, sch.getSchEndTime());
 		
-		long insertLocId = getWritableDatabase().insert(TABLE_LOCATION,null,cv);
-		return insertLocId;
+		long hId = getWritableDatabase().insert(TABLE_HISTORY, null, cv);
+
+		List<EntertainmentModel> eList = sch.getEntmList();
+		for (EntertainmentModel em : eList) {
+			long eId = insertEntertainment(em);
+			long historyentm = insertHistoryEntm(hId, eId);
+		}
+
+		return hId;
 	}
 
 	public long insertEntertainment(EntertainmentModel entm) {
-		
 		
 		ContentValues cv = new ContentValues();
 		long insertLocId =insertLocation(entm.getEntmLoc());
@@ -115,10 +221,15 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		cv.put(COLUMN_ENTERTAINMENT_DURATION, entm.getEntmDuration());
 		// return id of new trip
 		long insertEntmId = getWritableDatabase().insert(TABLE_ENTERTAINMENT, null, cv);
-
-		System.out.println("1111111");
 		return insertEntmId;
 
+	}
+	
+	public long insertHistoryEntm(long hId, long eId){
+		ContentValues cv = new ContentValues();
+		cv.put(COLUMN_HISTORYENTM_HID, hId);
+		cv.put(COLUMN_HISTORYENTM_EID, eId);
+		return getWritableDatabase().insert(TABLE_HISTORYENTM, null, cv);
 	}
 	
 	public List<EntertainmentModel> getEntm(){
@@ -131,14 +242,11 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 			EntertainmentModel entm = new EntertainmentModel();
 			
-//			System.out.println("cursor 5" + cursor.getString(5));
-			entm.setEntmName(cursor.getString(1));
-			
+			entm.setEntmName(cursor.getString(1));			
 			entm.setEntmTravelTime(cursor.getString(3));
 			entm.setEntmStartTime(cursor.getString(4));
 			entm.setEntmDuration(cursor.getString(5));
 			
-
 			// add location
 			long locid = cursor.getLong(2);
 			System.out.println("locid" + locid);
@@ -152,6 +260,16 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 
 		cursor.close();
 		return entmList;
+	}
+	
+	public long insertLocation(LocationModel loc){
+		ContentValues cv = new ContentValues();
+		cv.put(COLUMN_LOCATION_LONGITUDE, loc.getLongitude());
+		cv.put(COLUMN_LOCATION_LATITUDE, loc.getLatitude());
+		cv.put(COLUMN_LOCATION_ADDRESS, loc.getAddress());
+		
+		long insertLocId = getWritableDatabase().insert(TABLE_LOCATION,null,cv);
+		return insertLocId;
 	}
 	
 	public LocationModel getLoc(long locid){
@@ -169,9 +287,6 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		cursor.close();
 		return loc;
 	}
-
-	
-
 	
 }
 
