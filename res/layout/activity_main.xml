@@ -2,20 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   
+    android:background="@color/orange"
     tools:context=".MainActivity" >
-
-    <Button
-        android:id="@+id/select_entertainment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="118dp"
-        android:background="@color/orange"
-        android:onClick="entertainmentSelect"
-        android:text="@string/entertainments" />
 
     <Button
         android:id="@+id/select_attraction"
@@ -24,9 +12,9 @@
         android:layout_alignLeft="@+id/select_entertainment"
         android:layout_alignTop="@+id/select_entertainment"
         android:layout_marginTop="44dp"
-        android:background="@color/orange"
-        android:text="@string/attractions" 
-        android:onClick="attractionSelect"/>
+        android:background="@drawable/layout_border"
+        android:onClick="attractionSelect"
+        android:text="@string/attractions" />
 
     <Button
         android:id="@+id/select_restaurant"
@@ -35,10 +23,9 @@
         android:layout_alignLeft="@+id/select_attraction"
         android:layout_alignTop="@+id/select_attraction"
         android:layout_marginTop="44dp"
-        android:background="@color/orange"
-        
-        android:text="@string/restaurants" 
-        android:onClick="restaurantSelect"/>
+        android:background="@drawable/layout_border"
+        android:onClick="restaurantSelect"
+        android:text="@string/restaurants" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -47,6 +34,38 @@
         android:layout_above="@+id/select_entertainment"
         android:layout_alignLeft="@+id/select_entertainment"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/city2"
         android:src="@drawable/city2" />
+
+    <Button
+        android:id="@+id/select_entertainment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/layout_border"
+        android:onClick="entertainmentSelect"
+        android:text="@string/entertainments" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="27dp"
+        android:background="@drawable/layout_search" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="8:00 12/24 - 22:00 12/25"
+            android:textColor="#ffffff" >
+
+            <requestFocus />
+        </EditText>
+    </FrameLayout>
 
 </RelativeLayout>

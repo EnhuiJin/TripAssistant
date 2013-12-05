@@ -1,13 +1,13 @@
 package com.example.tripassistant;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
 
 public class EntertainmentSelectActivity extends Activity{
 	
@@ -36,9 +36,6 @@ public class EntertainmentSelectActivity extends Activity{
 		ListView listView = (ListView) findViewById(R.id.listView1);
 		listView.setAdapter(adapter);
 		
-//		 TextView textView = new TextView(this);
-//		 textView.setTextSize(20);
-//		 textView.setText("Entertainment List");
-//		 setContentView(textView);
+
 	}
 }
