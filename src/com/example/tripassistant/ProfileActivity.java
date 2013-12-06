@@ -1,22 +1,42 @@
 package com.example.tripassistant;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class ProfileActivity extends Activity {
+	private TripAssistantDatabaseHelper db;
+	private UserInfoModel user;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
+		db = new TripAssistantDatabaseHelper(ProfileActivity.this);
+		Long uid = PreferenceManager.getDefaultSharedPreferences(this).getLong(UserInfoModel.PREF_TOKEN, 0);
+		user = db.getUser(uid);
+		TextView usernameTV = (TextView)findViewById(R.id.username);
+		usernameTV.setText(user.getUname());
+		
+		TextView emailTV = (TextView)findViewById(R.id.email);
+		emailTV.setText(user.getEmail());
+		
+	}
+	
+	
+	public void logout(View view){
+		PreferenceManager.getDefaultSharedPreferences(this).edit().putLong(UserInfoModel.PREF_TOKEN, 0).commit();
+		PreferenceManager.getDefaultSharedPreferences(this).edit().putString(UserInfoModel.PREF_PERIOD, null).commit();
+		Intent intent = new Intent(this,MainActivity.class);
+		startActivity(intent);
+		
 	}
 
-
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

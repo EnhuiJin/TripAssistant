@@ -37,27 +37,29 @@ public final class R {
         public static final int layout_search=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a001a;
+        public static final int action_settings=0x7f0a0019;
         public static final int button1=0x7f0a0008;
         public static final int button2=0x7f0a0007;
         public static final int button3=0x7f0a0009;
-        public static final int cart=0x7f0a001c;
+        public static final int cart=0x7f0a001d;
         public static final int editText1=0x7f0a000e;
-        public static final int editText2=0x7f0a0018;
-        public static final int editText3=0x7f0a0016;
-        public static final int editText4=0x7f0a0012;
-        public static final int editText5=0x7f0a0013;
-        public static final int editText6=0x7f0a0014;
+        public static final int editText3=0x7f0a0017;
+        public static final int editText4=0x7f0a0013;
+        public static final int editText5=0x7f0a0012;
+        public static final int editText6=0x7f0a0015;
         public static final int email=0x7f0a0010;
         public static final int frameLayout1=0x7f0a0000;
-        public static final int home=0x7f0a001b;
+        public static final int frameLayout2=0x7f0a0014;
+        public static final int history=0x7f0a001c;
+        public static final int home=0x7f0a001a;
         public static final int imageView1=0x7f0a000d;
-        public static final int listView1=0x7f0a0019;
-        public static final int log=0x7f0a001e;
+        public static final int listView1=0x7f0a0018;
+        public static final int log=0x7f0a001f;
+        public static final int record=0x7f0a001b;
         public static final int select_attraction=0x7f0a000a;
         public static final int select_entertainment=0x7f0a000b;
         public static final int select_restaurant=0x7f0a000c;
-        public static final int setting=0x7f0a001d;
+        public static final int setting=0x7f0a001e;
         public static final int spinner1=0x7f0a0011;
         public static final int textView1=0x7f0a0001;
         public static final int textView2=0x7f0a0002;
@@ -65,25 +67,31 @@ public final class R {
         public static final int textView4=0x7f0a0004;
         public static final int textView5=0x7f0a0005;
         public static final int textView6=0x7f0a0006;
-        public static final int textView7=0x7f0a0015;
-        public static final int textView8=0x7f0a0017;
+        public static final int textView8=0x7f0a0016;
         public static final int username=0x7f0a000f;
     }
     public static final class layout {
-        public static final int activity_cart=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_profile=0x7f030002;
-        public static final int activity_setting=0x7f030003;
-        public static final int attraction_select=0x7f030004;
-        public static final int entertainment_select=0x7f030005;
-        public static final int restaurant_select=0x7f030006;
+        public static final int activity_alert_dialog_fragment=0x7f030000;
+        public static final int activity_cart=0x7f030001;
+        public static final int activity_check_user_duplicate_fragment=0x7f030002;
+        public static final int activity_history=0x7f030003;
+        public static final int activity_main=0x7f030004;
+        public static final int activity_profile=0x7f030005;
+        public static final int activity_setting=0x7f030006;
+        public static final int attraction_select=0x7f030007;
+        public static final int entertainment_select=0x7f030008;
+        public static final int restaurant_select=0x7f030009;
     }
     public static final class menu {
-        public static final int cart=0x7f090000;
-        public static final int main=0x7f090001;
-        public static final int profile=0x7f090002;
-        public static final int setting=0x7f090003;
-        public static final int ts_menu=0x7f090004;
+        public static final int alert=0x7f090000;
+        public static final int alert_dialog=0x7f090001;
+        public static final int cart=0x7f090002;
+        public static final int check_user_duplicate=0x7f090003;
+        public static final int history=0x7f090004;
+        public static final int main=0x7f090005;
+        public static final int profile=0x7f090006;
+        public static final int setting=0x7f090007;
+        public static final int ts_menu=0x7f090008;
     }
     public static final class string {
         public static final int City=0x7f060019;
@@ -98,7 +106,10 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int attraction=0x7f060004;
         public static final int attractions=0x7f060007;
+        public static final int cancel=0x7f06001f;
         public static final int city_prompt=0x7f06001a;
+        public static final int dialog_msg=0x7f06001e;
+        public static final int dialog_msg_check_user=0x7f060021;
         public static final int done=0x7f060011;
         public static final int entertainment=0x7f060003;
         public static final int entertainments=0x7f060006;
@@ -107,7 +118,11 @@ public final class R {
         public static final int restaurants=0x7f060008;
         public static final int signin=0x7f06000f;
         public static final int signup=0x7f060010;
+        public static final int title_activity_alert=0x7f06001c;
+        public static final int title_activity_alert_dialog_fragment=0x7f06001d;
         public static final int title_activity_cart=0x7f06000a;
+        public static final int title_activity_check_user_duplicate_fragment=0x7f060020;
+        public static final int title_activity_history=0x7f060022;
         public static final int title_activity_profile=0x7f06001b;
         public static final int title_activity_setting=0x7f060009;
         public static final int title_activity_test=0x7f06000b;

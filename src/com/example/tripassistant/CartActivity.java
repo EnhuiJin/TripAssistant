@@ -31,13 +31,21 @@ public class CartActivity extends Activity {
 	        case R.id.cart:
 	            goToCart();
 	            return true;
+	        case R.id.history:
+	            goToHistory();
+	            return true;    
 	        case R.id.log:
 	        	goToSetting();
+	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
 	
+	public void goToHistory(){
+		Intent intent = new Intent(this,HistoryActivity.class);
+		startActivity(intent);
+	}
 	public void goToHome(){
 		Intent intent =new Intent(this,MainActivity.class);
 		startActivity(intent);

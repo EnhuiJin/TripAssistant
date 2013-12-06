@@ -66,6 +66,26 @@
             android:name="com.example.tripassistant.ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
+        <activity
+            android:name="com.example.tripassistant.AlertActivity"
+            android:label="@string/title_activity_alert" >
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.AlertDialogFragment"
+            android:label="@string/title_activity_alert_dialog_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.CheckUserDuplicateFragment"
+            android:label="@string/title_activity_check_user_duplicate_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.HistoryActivity"
+            android:label="@string/title_activity_history" 
+            android:parentActivityName="com.example.tripassistant.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tripassistant.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -4,17 +4,24 @@
           
           android:title="Home"
           android:showAsAction="ifRoom"/>
-    <item android:id="@+id/cart"
+    
+    <item android:id="@+id/record"
           
-          android:title="Cart"
-          android:showAsAction="ifRoom"/>
+          android:title="View"
+          android:showAsAction="ifRoom" >
+          <menu>
+            <item android:id="@+id/history"
+                  android:title="History" />   
+                  
+            <item android:id="@+id/cart"
+                  android:title="Cart" />   
+        </menu>
+       </item>
+    
     
      <item android:id="@+id/setting"
           
           android:title="Setting"
-<<<<<<< HEAD
-          android:showAsAction="ifRoom"/>
-=======
           android:showAsAction="ifRoom">
           <menu>
             <item android:id="@+id/log"
@@ -22,7 +29,6 @@
            
         </menu>
        </item>
->>>>>>> pr/4
     
     
 

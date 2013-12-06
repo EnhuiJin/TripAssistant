@@ -6,11 +6,13 @@ import java.util.List;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends FragmentActivity {
 
@@ -70,6 +72,14 @@ public class MainActivity extends FragmentActivity {
 //		List<RecommendedItem> recommendation = recom.ItemBasedRecommender(1, 2);
 //		Log.i("RECOMMENDATION", recommendation.toString());
 	}
+	
+	
+	public void storePeriod(View view){
+		EditText periodET = (EditText)findViewById(R.id.editText1);
+		String period = periodET.getText().toString();
+		PreferenceManager.getDefaultSharedPreferences(this).edit().putString(UserInfoModel.PREF_PERIOD, period).commit();
+		
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,12 +98,20 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.cart:
 	            goToCart();
 	            return true;
+	        case R.id.history:
+	            goToHistory();
+	            return true;    
 	        case R.id.log:
 	        	goToSetting();
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
+	}
+	
+	public void goToHistory(){
+		Intent intent = new Intent(this,HistoryActivity.class);
+		startActivity(intent);
 	}
 	
 	public void goToHome(){

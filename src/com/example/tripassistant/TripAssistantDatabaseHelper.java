@@ -25,6 +25,10 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	private static final String COLUMN_HISTORY_STARTTIME = "hstarttime";
 	private static final String COLUMN_HISTORY_ENDTIME = "hendtime";
 	
+	private static final String TABLE_USERHISTORY = "userhistory";
+	private static final String COLUMN_USERHISTORY_UID = "uid";
+	private static final String COLUMN_USERHISTORY_HID = "hid";
+	
 	private static final String TABLE_HISTORYENTM = "historyEntm";
 	private static final String COLUMN_HISTORYENTM_HID = "hid";
 	private static final String COLUMN_HISTORYENTM_EID = "eid";
@@ -78,6 +82,10 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 				+ COLUMN_HISTORY_STARTTIME + " text, " 
 				+ COLUMN_HISTORY_ENDTIME + " text)");
 		
+		db.execSQL("create table " + TABLE_USERHISTORY + "(" 
+				+ COLUMN_USERHISTORY_UID + " integer references userInfo(uid), " 
+				+ COLUMN_USERHISTORY_HID + " integer references history(hid))");
+		
 		db.execSQL("create table " + TABLE_HISTORYENTM + "(" 
 				+ COLUMN_HISTORYENTM_HID + " integer references history(hid), " 
 				+ COLUMN_HISTORYENTM_EID + " integer references entertainment(eid))");
@@ -113,6 +121,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		// drop older table if exists
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERINFO);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERHISTORY);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORYENTM);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_ENTERTAINMENT);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_ATTRACTION);
@@ -123,19 +132,75 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		onCreate(db);
 	}
 	
+	
+	
 	public UserInfoModel login(String email){
 		SQLiteDatabase db = this.getReadableDatabase();
+		UserInfoModel user =null;
 		String user_check = "select * from " + TABLE_USERINFO + " where uemail = ?";
 		Cursor cursor = db.rawQuery(user_check, new String[] {email});
+		if(cursor.getCount()!=0){
 		cursor.moveToFirst();
-		UserInfoModel user = new UserInfoModel();
+		user = new UserInfoModel();
 		user.setUname(cursor.getString(1));
 		user.setEmail(cursor.getString(2));
 		user.setPw(cursor.getString(3));
 		user.setCity(cursor.getString(4));
+		}
 		cursor.close();
+		
 		return user;
 	}
+	
+	public UserInfoModel getUser(Long uid){
+		SQLiteDatabase db = this.getReadableDatabase();
+		UserInfoModel user =null;
+		String user_get = "select * from " + TABLE_USERINFO + " where uid = ?";
+		String uid2 = uid.toString();
+		Cursor cursor = db.rawQuery(user_get,new String[] {uid2});
+		if(cursor.getCount()!=0){
+			cursor.moveToFirst();
+			user = new UserInfoModel();
+			user.setUname(cursor.getString(1));
+			user.setEmail(cursor.getString(2));
+			user.setPw(cursor.getString(3));
+			user.setCity(cursor.getString(4));
+			}
+			cursor.close();
+			
+			return user;
+		
+	}
+	
+	public long getUid(UserInfoModel user){
+		SQLiteDatabase db=this.getReadableDatabase();
+		long uid=0;
+		String uid_get = "select uid from " + TABLE_USERINFO + " where uemail = ?";
+		Cursor cursor = db.rawQuery(uid_get, new String[] {user.getEmail()});
+		if(cursor.getCount()!=0){
+			cursor.moveToFirst();
+			uid = cursor.getLong(0);
+		}
+		return uid;
+	}
+	
+	public EntertainmentModel getEntm(long eid){
+		SQLiteDatabase db = this.getReadableDatabase();
+		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where eid = ?";
+		Cursor cursor = db.rawQuery(entm_get, new String[] {Long.toString(eid)});
+		cursor.moveToFirst();
+		EntertainmentModel entm = new EntertainmentModel();		
+		entm.setEntmName(cursor.getString(1));			
+		entm.setEntmTravelTime(cursor.getString(3));
+		entm.setEntmStartTime(cursor.getString(4));
+		entm.setEntmDuration(cursor.getString(5));			
+		long locid = cursor.getLong(2);
+		LocationModel loc = getLoc(locid);
+		entm.setEntmLoc(loc);
+		cursor.close();
+		return entm;
+	}
+	
 	
 	public List<ScheduleModel> getAllHistory(){
 		List<ScheduleModel> sList = new ArrayList<ScheduleModel>();
@@ -193,12 +258,13 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		return getWritableDatabase().insert(TABLE_USERINFO, null, cv);
 	}
 	
-	public long insertHistory(ScheduleModel sch){
+	public long insertHistory(ScheduleModel sch, long uid){
 		ContentValues cv = new ContentValues();
 		cv.put(COLUMN_HISTORY_STARTTIME, sch.getSchStartTime());
 		cv.put(COLUMN_HISTORY_ENDTIME, sch.getSchEndTime());
 		
 		long hId = getWritableDatabase().insert(TABLE_HISTORY, null, cv);
+		long userhistory = insertUserHistory(uid, hId);
 
 		List<EntertainmentModel> eList = sch.getEntmList();
 		for (EntertainmentModel em : eList) {
@@ -207,6 +273,13 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		}
 
 		return hId;
+	}
+	
+	public long insertUserHistory(long uid, long hid){
+		ContentValues cv = new ContentValues();
+		cv.put(COLUMN_USERHISTORY_UID, uid);
+		cv.put(COLUMN_USERHISTORY_HID, hid);
+		return getWritableDatabase().insert(TABLE_USERHISTORY, null, cv);
 	}
 
 	public long insertEntertainment(EntertainmentModel entm) {

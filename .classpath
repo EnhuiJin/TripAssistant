@@ -3,16 +3,15 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="src" path="lib"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/lib/log4j-1.2.16.jar"/>
-	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/lib/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/lib/slf4j-log4j12-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/lib/uncommons-maths-1.2.2.jar"/>
-	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/mahout-core-0.7.jar" sourcepath="/Users/GS/.m2/repository/org/apache/mahout/mahout-core/0.7/mahout-core-0.7-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/mahout-math-0.7.jar"/>
-	<classpathentry kind="lib" path="/Users/GS/mahout/mahout/integration/target/dependency/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/mahout-core-0.7.jar"/>
+	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/mahout-math-0.7.jar"/>
+	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/uncommons-maths-1.2.2.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
