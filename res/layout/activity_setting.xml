@@ -76,6 +76,7 @@
                 android:layout_below="@+id/editText5"
                 android:inputType="textPassword" />
 
+<<<<<<< HEAD
             <Button
                 android:id="@+id/button1"
                 android:layout_width="150dp"
@@ -92,6 +93,70 @@
 
     <FrameLayout
         android:id="@+id/frameLayout2"
+=======
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText2"
+        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignLeft="@+id/textView2"
+        android:text="@string/ConfirmPassword"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText2"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_marginBottom="18dp"
+        android:text="@string/Password"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_marginBottom="15dp"
+        android:text="@string/Email"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:text="@string/UserName"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_marginBottom="27dp"
+        android:text="@string/signup" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_marginBottom="16dp"
+        android:text="@string/Password"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView3"
+>>>>>>> e868da8d239201196c482f9143cf792c72d4806e
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/frameLayout1"
