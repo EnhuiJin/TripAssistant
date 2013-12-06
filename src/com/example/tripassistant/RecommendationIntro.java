@@ -15,6 +15,7 @@ import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
 import android.os.Environment;
 
 public class RecommendationIntro {
+	final static String fileName = "/history.txt";
 	RecommendationIntro() {
 
 	};
@@ -28,7 +29,7 @@ public class RecommendationIntro {
 			DataModel model = new GenericBooleanPrefDataModel(
 					GenericBooleanPrefDataModel.toDataMap(new FileDataModel(
 							new File(Environment.getExternalStorageDirectory()
-									+ "/text.txt"))));
+									+ fileName))));
 			ItemSimilarity similarity = new LogLikelihoodSimilarity(model); // item similarity																			
 			Recommender recommender = new GenericItemBasedRecommender(model,
 					similarity);// construct recommendation engine

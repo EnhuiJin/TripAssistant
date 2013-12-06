@@ -61,7 +61,7 @@
             android:id="@+id/editText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="8:00 12/24 - 22:00 12/25"
+            android:hint="8:00 - 22:00 12/25"
             android:textColor="#ffffff" >
 
             <requestFocus />

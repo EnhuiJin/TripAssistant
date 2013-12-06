@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/home"
-          
-          android:title="Home"
-          android:showAsAction="ifRoom"/>
-    <item android:id="@+id/cart"
-          
-          android:title="Cart"
-          android:showAsAction="ifRoom"/>
-    
-     <item android:id="@+id/setting"
-          
-          android:title="Setting"
-<<<<<<< HEAD
-          android:showAsAction="ifRoom"/>
-=======
-          android:showAsAction="ifRoom">
-          <menu>
-            <item android:id="@+id/log"
-                  android:title="login/logout" />
-           
+
+    <item
+        android:id="@+id/home"
+        android:showAsAction="ifRoom"
+        android:title="Home"/>
+    <item
+        android:id="@+id/cart"
+        android:showAsAction="ifRoom"
+        android:title="Cart"/>
+    <item
+        android:id="@+id/setting"
+        android:showAsAction="ifRoom"
+        android:title="Setting">
+        <menu>
+            <item
+                android:id="@+id/log"
+                android:title="login/logout"/>
         </menu>
-       </item>
->>>>>>> pr/4
-    
-    
+    </item>
 
 </menu>

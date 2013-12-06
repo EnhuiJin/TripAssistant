@@ -1,13 +1,8 @@
 package com.example.tripassistant;
 
-
-import java.util.List;
-
-import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +17,7 @@ public class MainActivity extends FragmentActivity {
 	private UserInfoModel user;
 	private ScheduleModel sch;
 	
-	private RecommendationIntro recom;
+//	private DataRetrival http;
 
 	
 	public void insertRecord(){
@@ -52,10 +47,10 @@ public class MainActivity extends FragmentActivity {
 //		UserInfoModel u = db.login("gs@gmail.com");
 //		Log.i("test1", u.getPw() + " " + u.getCity());
 
-		List<ScheduleModel> sl = db.getAllHistory();
-		for(ScheduleModel sm: sl){
-			Log.i("test", sm.getSchEndTime() + " : " + sm.getSchEndTime() + " : " + sm.getEntmList().toString());
-		}
+//		List<ScheduleModel> sl = db.getAllHistory();
+//		for(ScheduleModel sm: sl){
+//			Log.i("test", sm.getSchEndTime() + " : " + sm.getSchEndTime() + " : " + sm.getEntmList().toString());
+//		}
 		db.close();	
 	}
 	
@@ -64,11 +59,28 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		
 //		insertRecord();
 		
 //		recom = new RecommendationIntro();
-//		List<RecommendedItem> recommendation = recom.ItemBasedRecommender(1, 2);
+//		List<RecommendedItem> recommendation = recom.ItemBasedRecommender(1, 20);
+//		Log.i("SIZE", recommendation.size() + "");
 //		Log.i("RECOMMENDATION", recommendation.toString());
+		
+//		textOperation t = new textOperation();
+//		t.writeFile("22,22");
+//		t.readFile();
+		
+//		http = new DataRetrival();
+//		List<EntertainmentModel> result = http.fromJsonToEM();
+//		Log.i("dataSource", result.size() + "");
+//		db = new TripAssistantDatabaseHelper(MainActivity.this);
+//		for(EntertainmentModel entm: result){
+//			db.insertEntertainment(entm);
+//		}
+//		db.close();
+
 	}
 
 	@Override
