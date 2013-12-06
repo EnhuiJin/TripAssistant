@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/select_entertainment"
         android:layout_alignTop="@+id/select_entertainment"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="54dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:background="@drawable/layout_border"
         android:onClick="attractionSelect"
         android:text="@string/attractions" />
@@ -22,7 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/select_attraction"
         android:layout_alignTop="@+id/select_attraction"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="54dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:background="@drawable/layout_border"
         android:onClick="restaurantSelect"
         android:text="@string/restaurants" />
@@ -44,7 +48,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="132dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:background="@drawable/layout_border"
         android:onClick="entertainmentSelect"
         android:text="@string/entertainments" />
@@ -61,8 +68,20 @@
             android:id="@+id/editText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            android:hint="8:00 12/24 - 22:00 12/25"
+            android:textColor="#ffffff"
+            android:onClick="storePeriod" >
+=======
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
             android:hint="8:00 - 22:00 12/25"
             android:textColor="#ffffff" >
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 
             <requestFocus />
         </EditText>

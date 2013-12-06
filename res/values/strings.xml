@@ -20,8 +20,8 @@
     <string name="signup">Sign Up</string>
     <string name="done">Done</string>
     <string name="Logout">Logout</string>
-    <string name="UserID">UserID</string>
-    <string name="UserNameemail">UserName/email</string>
+    <string name="UserID">User Name</string>
+    <string name="UserNameemail">UserName</string>
     <string name="UserName">UserName</string>
     <string name="Password">Password</string>
     <string name="ConfirmPassword">ConfirmPassword</string>
@@ -36,5 +36,12 @@
     </string-array>
 
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_alert">AlertActivity</string>
+    <string name="title_activity_alert_dialog_fragment">AlertDialogFragment</string>
+    <string name="dialog_msg">Sorry, wrong email or password!</string>
+    <string name="cancel">OK</string>
+    <string name="title_activity_check_user_duplicate_fragment">CheckUserDuplicateFragment</string>
+    <string name="dialog_msg_check_user">This email has been used!</string>
+    <string name="title_activity_history">HistoryActivity</string>
 
 </resources>

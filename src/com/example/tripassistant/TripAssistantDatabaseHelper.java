@@ -140,20 +140,67 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		onCreate(db);
 	}
 	
+	
+	
 	public UserInfoModel login(String email){
 		SQLiteDatabase db = this.getReadableDatabase();
+		UserInfoModel user =null;
 		String user_check = "select * from " + TABLE_USERINFO + " where uemail = ?";
 		Cursor cursor = db.rawQuery(user_check, new String[] {email});
+		if(cursor.getCount()!=0){
 		cursor.moveToFirst();
-		UserInfoModel user = new UserInfoModel();
+		user = new UserInfoModel();
 		user.setUname(cursor.getString(1));
 		user.setEmail(cursor.getString(2));
 		user.setPw(cursor.getString(3));
 		user.setCity(cursor.getString(4));
+		}
 		cursor.close();
+		
 		return user;
 	}
 	
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+	public UserInfoModel getUser(Long uid){
+		SQLiteDatabase db = this.getReadableDatabase();
+		UserInfoModel user =null;
+		String user_get = "select * from " + TABLE_USERINFO + " where uid = ?";
+		String uid2 = uid.toString();
+		Cursor cursor = db.rawQuery(user_get,new String[] {uid2});
+		if(cursor.getCount()!=0){
+			cursor.moveToFirst();
+			user = new UserInfoModel();
+			user.setUname(cursor.getString(1));
+			user.setEmail(cursor.getString(2));
+			user.setPw(cursor.getString(3));
+			user.setCity(cursor.getString(4));
+			}
+			cursor.close();
+			
+			return user;
+		
+	}
+	
+	public long getUid(UserInfoModel user){
+		SQLiteDatabase db=this.getReadableDatabase();
+		long uid=0;
+		String uid_get = "select uid from " + TABLE_USERINFO + " where uemail = ?";
+		Cursor cursor = db.rawQuery(uid_get, new String[] {user.getEmail()});
+		if(cursor.getCount()!=0){
+			cursor.moveToFirst();
+			uid = cursor.getLong(0);
+		}
+		return uid;
+	}
+	
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	public EntertainmentModel getEntm(long eid){
 		SQLiteDatabase db = this.getReadableDatabase();
 		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where eid = ?";
@@ -172,6 +219,14 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	public EntertainmentModel getEntmByName(String name){
 		SQLiteDatabase db = this.getReadableDatabase();
 		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where ename = ?";
@@ -191,6 +246,13 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	
 =======
 >>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	
 	public List<ScheduleModel> getAllHistory(){
 		List<ScheduleModel> sList = new ArrayList<ScheduleModel>();

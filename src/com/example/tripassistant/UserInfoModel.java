@@ -2,6 +2,8 @@ package com.example.tripassistant;
 
 public class UserInfoModel {
 	
+	public static final String PREF_TOKEN = "token"; 
+	public static final String PREF_PERIOD = "period";
 	private String uname;
 	private String email;
 	private String pw;
