@@ -1,15 +1,20 @@
 package com.example.tripassistant;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleModel {
 
 	private String schStartTime;
 	private String schEndTime;
-	private List<RestaurantModel> restList;
+//	private List<RestaurantModel> restList;
 	private List<EntertainmentModel> entmList;
-	private List<AttractionModel> attList;
+//	private List<AttractionModel> attList;
 
+	public ScheduleModel(){
+		entmList = new ArrayList<EntertainmentModel>();
+	}
+	
 	public String getSchStartTime() {
 		return schStartTime;
 	}
@@ -26,28 +31,28 @@ public class ScheduleModel {
 		this.schEndTime = schEndTime;
 	}
 
-	public List<RestaurantModel> getRestList() {
-		return restList;
-	}
-
-	public void setRestList(List<RestaurantModel> restList) {
-		this.restList = restList;
-	}
+//	public List<RestaurantModel> getRestList() {
+//		return restList;
+//	}
+//
+//	public void setRestList(List<RestaurantModel> restList) {
+//		this.restList = restList;
+//	}
 
 	public List<EntertainmentModel> getEntmList() {
 		return entmList;
 	}
 
-	public void setEntmList(List<EntertainmentModel> entmList) {
-		this.entmList = entmList;
+	public void setEntmList(EntertainmentModel entm) {
+		this.entmList.add(entm);
 	}
 
-	public List<AttractionModel> getAttList() {
-		return attList;
-	}
-
-	public void setAttList(List<AttractionModel> attList) {
-		this.attList = attList;
-	}
+//	public List<AttractionModel> getAttList() {
+//		return attList;
+//	}
+//
+//	public void setAttList(List<AttractionModel> attList) {
+//		this.attList = attList;
+//	}
 
 }

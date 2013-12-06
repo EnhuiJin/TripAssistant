@@ -10,5 +10,38 @@
     <string name="entertainments">Entertainments</string>
     <string name="attractions">Attractions</string>
     <string name="restaurants">Restaurants</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_cart">CartActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="done">Done</string>
+    <string name="Logout">Logout</string>
+    <string name="UserID">User Name</string>
+    <string name="UserNameemail">UserName</string>
+    <string name="UserName">UserName</string>
+    <string name="Password">Password</string>
+    <string name="ConfirmPassword">ConfirmPassword</string>
+    <string name="Email">Email</string>
+    <string name="City">City</string>
+    <string name="city_prompt">Choose a country</string>
+	<string name="detail_address">address</string>
+	<string name="Event_Details">Details</string>
+	
+    <string-array name="City_array">
+        <item>New York</item>
+    </string-array>
+
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_alert">AlertActivity</string>
+    <string name="title_activity_alert_dialog_fragment">AlertDialogFragment</string>
+    <string name="dialog_msg">Sorry, wrong email or password!</string>
+    <string name="cancel">OK</string>
+    <string name="title_activity_check_user_duplicate_fragment">CheckUserDuplicateFragment</string>
+    <string name="dialog_msg_check_user">This email has been used!</string>
+    <string name="title_activity_history">HistoryActivity</string>
 
 </resources>

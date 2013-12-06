@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
+
+    <item
+        android:id="@+id/home"
+        android:showAsAction="ifRoom"
+        android:title="Home"/>
+    <item
+        android:id="@+id/cart"
+        android:showAsAction="ifRoom"
+        android:title="Cart"/>
+    <item
+        android:id="@+id/setting"
+        android:showAsAction="ifRoom"
+        android:title="Setting">
+        <menu>
+            <item
+                android:id="@+id/log"
+                android:title="login/logout"/>
+<<<<<<< HEAD
+        </menu>
+    </item>
+=======
+        </menu>
+    </item>
+=======
+    <item android:id="@+id/home"
+          
+          android:title="Home"
+          android:showAsAction="ifRoom"/>
+    
+    <item android:id="@+id/record"
+          
+<<<<<<< HEAD
+          android:title="View"
+          android:showAsAction="ifRoom" >
+          <menu>
+            <item android:id="@+id/history"
+                  android:title="History" />   
+                  
+            <item android:id="@+id/cart"
+                  android:title="Cart" />   
+        </menu>
+       </item>
+    
+=======
+          android:title="Cart"
+          android:showAsAction="ifRoom" 
+          />
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+    
+     <item android:id="@+id/setting"
+          
+          android:title="Setting"
+          android:showAsAction="ifRoom">
+          <menu>
+            <item android:id="@+id/log"
+                  android:title="login/logout" />
+           
+        </menu>
+       </item>
+    
+    
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
+>>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
+
+</menu>

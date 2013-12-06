@@ -5,14 +5,53 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="18" />
+    
+    
+    <!-- TODO: Replace "com.example.hellomap" with your package name -->
+    <permission
+        android:name="com.example.tripassistant.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
 
+
+    <uses-permission android:name="com.example.tripassistant.permission.MAPS_RECEIVE" />
+
+    <!-- The following four permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <!--
+         The following two permissions are not required to use
+         Google Maps Android API v2, but are recommended.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCyWdYKD7uNTfFFqprH_q-EOSanV-Qt1Yc" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        
+        
         <activity
             android:name="com.example.tripassistant.MainActivity"
             android:label="@string/app_name" >
@@ -22,33 +61,80 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.example.tripassistant.EntertainmentSelectActivity"
-            android:label="@string/entertainment" 
-			android:parentActivityName="com.example.tripassistant.MainActivity" >
+            android:label="@string/entertainment"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tripassistant.MainActivity" />
         </activity>
-        
         <activity
             android:name="com.example.tripassistant.AttractionSelectActivity"
-            android:label="@string/attraction" 
-			android:parentActivityName="com.example.tripassistant.MainActivity" >
+            android:label="@string/attraction"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tripassistant.MainActivity" />
         </activity>
-        
         <activity
             android:name="com.example.tripassistant.RestaurantSelectActivity"
-            android:label="@string/restaurant" 
-			android:parentActivityName="com.example.tripassistant.MainActivity" >
+            android:label="@string/restaurant"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tripassistant.MainActivity" />
         </activity>
+        <activity
+            android:name="com.example.tripassistant.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tripassistant.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.CartActivity"
+            android:label="@string/title_activity_cart"
+            android:parentActivityName="com.example.tripassistant.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tripassistant.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
+
+        <activity
+            android:name="com.example.tripassistant.AlertActivity"
+            android:label="@string/title_activity_alert" >
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.AlertDialogFragment"
+            android:label="@string/title_activity_alert_dialog_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.CheckUserDuplicateFragment"
+            android:label="@string/title_activity_check_user_duplicate_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.tripassistant.HistoryActivity"
+            android:label="@string/title_activity_history" 
+            android:parentActivityName="com.example.tripassistant.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tripassistant.MainActivity" />
+        </activity>
+
+        
+         <activity
+            android:name="com.example.tripassistant.EventDetails"
+            android:label="@string/Event_Details"
+            android:parentActivityName="com.example.tripassistant.EntertainmentSelectActivity" >
+        </activity>
+        
+
     </application>
 
 </manifest>
