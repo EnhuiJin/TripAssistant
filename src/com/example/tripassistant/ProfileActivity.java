@@ -6,8 +6,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+<<<<<<< HEAD
 import android.view.View;
 import android.widget.TextView;
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 
 public class ProfileActivity extends Activity {
 	private TripAssistantDatabaseHelper db;

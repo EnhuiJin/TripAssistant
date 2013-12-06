@@ -68,9 +68,14 @@
             android:id="@+id/editText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:hint="8:00 12/24 - 22:00 12/25"
             android:textColor="#ffffff"
             android:onClick="storePeriod" >
+=======
+            android:hint="8:00 - 22:00 12/25"
+            android:textColor="#ffffff" >
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 
             <requestFocus />
         </EditText>

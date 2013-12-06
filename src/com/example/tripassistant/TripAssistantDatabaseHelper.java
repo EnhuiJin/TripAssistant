@@ -11,7 +11,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
-	private static final String DATABASE_NAME = "trips_assistant_db3";
+<<<<<<< HEAD
+	private static final String DATABASE_NAME = "trips_assistant_db_test6";
+=======
+<<<<<<< HEAD
+	private static final String DATABASE_NAME = "trips_assistant_db_test6";
+=======
+	private static final String DATABASE_NAME = "trips_assistant_db_test2";
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
+>>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
 	
 	private static final String TABLE_USERINFO = "userInfo";
 	private static final String COLUMN_USERINFO_ID = "uid";
@@ -111,7 +119,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		
 		db.execSQL("create table " + TABLE_LOCATION + "(" + COLUMN_LOCATION_ID
 				+ " INTEGER PRIMARY KEY  autoincrement, " + COLUMN_LOCATION_LONGITUDE
-				+ " long, " + COLUMN_LOCATION_LATITUDE + " long, "	
+				+ " double, " + COLUMN_LOCATION_LATITUDE + " double, "	
 				+ COLUMN_LOCATION_ADDRESS + " text)");
 		
 	}
@@ -152,6 +160,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		return user;
 	}
 	
+<<<<<<< HEAD
 	public UserInfoModel getUser(Long uid){
 		SQLiteDatabase db = this.getReadableDatabase();
 		UserInfoModel user =null;
@@ -184,6 +193,8 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		return uid;
 	}
 	
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	public EntertainmentModel getEntm(long eid){
 		SQLiteDatabase db = this.getReadableDatabase();
 		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where eid = ?";
@@ -201,6 +212,29 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		return entm;
 	}
 	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	public EntertainmentModel getEntmByName(String name){
+		SQLiteDatabase db = this.getReadableDatabase();
+		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where ename = ?";
+		Cursor cursor = db.rawQuery(entm_get, new String[] {name});
+		cursor.moveToFirst();
+		EntertainmentModel entm = new EntertainmentModel();		
+		entm.setEntmName(cursor.getString(1));			
+		entm.setEntmTravelTime(cursor.getString(3));
+		entm.setEntmStartTime(cursor.getString(4));
+		entm.setEntmDuration(cursor.getString(5));			
+		long locid = cursor.getLong(2);
+		LocationModel loc = getLoc(locid);
+		entm.setEntmLoc(loc);
+		cursor.close();
+		return entm;
+	}
+	
+=======
+>>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	
 	public List<ScheduleModel> getAllHistory(){
 		List<ScheduleModel> sList = new ArrayList<ScheduleModel>();
@@ -322,9 +356,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 			
 			// add location
 			long locid = cursor.getLong(2);
-			System.out.println("locid" + locid);
-			LocationModel loc = getLoc(locid);
-			
+			LocationModel loc = getLoc(locid);			
 			entm.setEntmLoc(loc);
 
 			//System.out.println(entm.toString());
@@ -352,9 +384,8 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		
 		
 		cursor.moveToFirst();
-		//System.out.println("loc"+cursor.getLong(1));
-		loc.setLongitude(cursor.getLong(1));
-		loc.setLatitude(cursor.getLong(2));
+		loc.setLongitude(cursor.getDouble(1));
+		loc.setLatitude(cursor.getDouble(2));
 		loc.setAddress(cursor.getString(3));
 		
 		cursor.close();
