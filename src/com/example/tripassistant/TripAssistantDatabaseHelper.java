@@ -11,7 +11,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
+<<<<<<< HEAD
 	private static final String DATABASE_NAME = "trips_assistant_db_test6";
+=======
+	private static final String DATABASE_NAME = "trips_assistant_db_test2";
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
 	
 	private static final String TABLE_USERINFO = "userInfo";
 	private static final String COLUMN_USERINFO_ID = "uid";

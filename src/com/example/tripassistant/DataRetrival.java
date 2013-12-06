@@ -17,8 +17,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+<<<<<<< HEAD
 import android.util.Log;
 
+=======
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
 /**
  * 
  * This class is used to retrive data from Stubhub.com. It also provides methods
@@ -36,6 +39,12 @@ public class DataRetrival {
 	private static final String PASSWORD = "168168";
 	private static final int numOfEvents = 50; // Specify how many events should
 												// be returned
+<<<<<<< HEAD
+=======
+	
+	private TripAssistantDatabaseHelper db;
+
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
 
 	/**
 	 * get events info from stubhub.com
@@ -91,10 +100,14 @@ public class DataRetrival {
 				event = new EntertainmentModel();
 				JSONObject jObject = jsonArray.getJSONObject(i);
 				String desp = jObject.getString("description");
+<<<<<<< HEAD
 				desp = desp.replaceAll("New York New York Tickets", "New York Tickets");
 				desp = desp.substring(0, desp.length() - 8);
 				event.setEntmName(desp);
 				Log.i("DESCRIPTION", desp);
+=======
+				event.setEntmName(desp);
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
 				String eventDate = jObject.getString("event_date");
 				eventDate = eventDate.replace("T", " ");
 				eventDate = eventDate.replace("Z", "");

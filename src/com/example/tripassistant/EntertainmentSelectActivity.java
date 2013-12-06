@@ -26,6 +26,7 @@ public class EntertainmentSelectActivity extends Activity {
 		setContentView(R.layout.entertainment_select);
 		
 		if (android.os.Build.VERSION.SDK_INT > 9) {
+<<<<<<< HEAD
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 		}
@@ -33,6 +34,15 @@ public class EntertainmentSelectActivity extends Activity {
 		db = new TripAssistantDatabaseHelper(EntertainmentSelectActivity.this);
 //		insertEntmRecord();
 		entmList = db.getEntm();
+=======
+	    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+	    StrictMode.setThreadPolicy(policy);
+	}
+
+		db = new TripAssistantDatabaseHelper(EntertainmentSelectActivity.this);
+//		insertEntmRecord();
+//		entmList = db.getEntm();
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
 		entmList = getRecommendedEntm(1);
 
 		String[] entmArray = new String[entmList.size()];
@@ -57,6 +67,10 @@ public class EntertainmentSelectActivity extends Activity {
 				20);
 		for (RecommendedItem item : recommendation) {
 			long eid = item.getItemID();
+<<<<<<< HEAD
+=======
+			Log.i("EID", eid + "");
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
 			allList.add(db.getEntm(eid));
 		}
 		
