@@ -28,7 +28,9 @@
     <string name="Email">Email</string>
     <string name="City">City</string>
     <string name="city_prompt">Choose a country</string>
-
+	<string name="detail_address">address</string>
+	<string name="Event_Details">Details</string>
+	
     <string-array name="City_array">
         <item>New York</item>
     </string-array>

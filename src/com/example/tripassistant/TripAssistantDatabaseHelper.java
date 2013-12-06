@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
-	private static final String DATABASE_NAME = "trips_assistant_db3";
+	private static final String DATABASE_NAME = "trips_assistant_db_test6";
 	
 	private static final String TABLE_USERINFO = "userInfo";
 	private static final String COLUMN_USERINFO_ID = "uid";
@@ -24,6 +24,10 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	private static final String COLUMN_HISTORY_ID = "hid";
 	private static final String COLUMN_HISTORY_STARTTIME = "hstarttime";
 	private static final String COLUMN_HISTORY_ENDTIME = "hendtime";
+	
+	private static final String TABLE_USERHISTORY = "userhistory";
+	private static final String COLUMN_USERHISTORY_UID = "uid";
+	private static final String COLUMN_USERHISTORY_HID = "hid";
 	
 	private static final String TABLE_HISTORYENTM = "historyEntm";
 	private static final String COLUMN_HISTORYENTM_HID = "hid";
@@ -78,6 +82,10 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 				+ COLUMN_HISTORY_STARTTIME + " text, " 
 				+ COLUMN_HISTORY_ENDTIME + " text)");
 		
+		db.execSQL("create table " + TABLE_USERHISTORY + "(" 
+				+ COLUMN_USERHISTORY_UID + " integer references userInfo(uid), " 
+				+ COLUMN_USERHISTORY_HID + " integer references history(hid))");
+		
 		db.execSQL("create table " + TABLE_HISTORYENTM + "(" 
 				+ COLUMN_HISTORYENTM_HID + " integer references history(hid), " 
 				+ COLUMN_HISTORYENTM_EID + " integer references entertainment(eid))");
@@ -103,7 +111,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		
 		db.execSQL("create table " + TABLE_LOCATION + "(" + COLUMN_LOCATION_ID
 				+ " INTEGER PRIMARY KEY  autoincrement, " + COLUMN_LOCATION_LONGITUDE
-				+ " long, " + COLUMN_LOCATION_LATITUDE + " long, "	
+				+ " double, " + COLUMN_LOCATION_LATITUDE + " double, "	
 				+ COLUMN_LOCATION_ADDRESS + " text)");
 		
 	}
@@ -113,6 +121,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		// drop older table if exists
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERINFO);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERHISTORY);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORYENTM);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_ENTERTAINMENT);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_ATTRACTION);
@@ -136,6 +145,41 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		cursor.close();
 		return user;
 	}
+	
+	public EntertainmentModel getEntm(long eid){
+		SQLiteDatabase db = this.getReadableDatabase();
+		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where eid = ?";
+		Cursor cursor = db.rawQuery(entm_get, new String[] {Long.toString(eid)});
+		cursor.moveToFirst();
+		EntertainmentModel entm = new EntertainmentModel();		
+		entm.setEntmName(cursor.getString(1));			
+		entm.setEntmTravelTime(cursor.getString(3));
+		entm.setEntmStartTime(cursor.getString(4));
+		entm.setEntmDuration(cursor.getString(5));			
+		long locid = cursor.getLong(2);
+		LocationModel loc = getLoc(locid);
+		entm.setEntmLoc(loc);
+		cursor.close();
+		return entm;
+	}
+	
+	public EntertainmentModel getEntmByName(String name){
+		SQLiteDatabase db = this.getReadableDatabase();
+		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where ename = ?";
+		Cursor cursor = db.rawQuery(entm_get, new String[] {name});
+		cursor.moveToFirst();
+		EntertainmentModel entm = new EntertainmentModel();		
+		entm.setEntmName(cursor.getString(1));			
+		entm.setEntmTravelTime(cursor.getString(3));
+		entm.setEntmStartTime(cursor.getString(4));
+		entm.setEntmDuration(cursor.getString(5));			
+		long locid = cursor.getLong(2);
+		LocationModel loc = getLoc(locid);
+		entm.setEntmLoc(loc);
+		cursor.close();
+		return entm;
+	}
+	
 	
 	public List<ScheduleModel> getAllHistory(){
 		List<ScheduleModel> sList = new ArrayList<ScheduleModel>();
@@ -193,12 +237,13 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		return getWritableDatabase().insert(TABLE_USERINFO, null, cv);
 	}
 	
-	public long insertHistory(ScheduleModel sch){
+	public long insertHistory(ScheduleModel sch, long uid){
 		ContentValues cv = new ContentValues();
 		cv.put(COLUMN_HISTORY_STARTTIME, sch.getSchStartTime());
 		cv.put(COLUMN_HISTORY_ENDTIME, sch.getSchEndTime());
 		
 		long hId = getWritableDatabase().insert(TABLE_HISTORY, null, cv);
+		long userhistory = insertUserHistory(uid, hId);
 
 		List<EntertainmentModel> eList = sch.getEntmList();
 		for (EntertainmentModel em : eList) {
@@ -207,6 +252,13 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		}
 
 		return hId;
+	}
+	
+	public long insertUserHistory(long uid, long hid){
+		ContentValues cv = new ContentValues();
+		cv.put(COLUMN_USERHISTORY_UID, uid);
+		cv.put(COLUMN_USERHISTORY_HID, hid);
+		return getWritableDatabase().insert(TABLE_USERHISTORY, null, cv);
 	}
 
 	public long insertEntertainment(EntertainmentModel entm) {
@@ -249,9 +301,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 			
 			// add location
 			long locid = cursor.getLong(2);
-			System.out.println("locid" + locid);
-			LocationModel loc = getLoc(locid);
-			
+			LocationModel loc = getLoc(locid);			
 			entm.setEntmLoc(loc);
 
 			//System.out.println(entm.toString());
@@ -279,9 +329,8 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		
 		
 		cursor.moveToFirst();
-		//System.out.println("loc"+cursor.getLong(1));
-		loc.setLongitude(cursor.getLong(1));
-		loc.setLatitude(cursor.getLong(2));
+		loc.setLongitude(cursor.getDouble(1));
+		loc.setLatitude(cursor.getDouble(2));
 		loc.setAddress(cursor.getString(3));
 		
 		cursor.close();
