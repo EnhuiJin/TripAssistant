@@ -14,6 +14,7 @@
         android:name="com.example.tripassistant.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
+<<<<<<< HEAD
     <uses-permission android:name="com.example.tripassistant.permission.MAPS_RECEIVE" />
 
     <!-- The following four permissions -->
@@ -33,6 +34,9 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
     
+=======
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+>>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
     
     <application
         android:allowBackup="true"

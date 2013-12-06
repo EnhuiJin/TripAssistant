@@ -11,7 +11,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
+<<<<<<< HEAD
 	private static final String DATABASE_NAME = "trips_assistant_db_test6";
+=======
+<<<<<<< HEAD
+	private static final String DATABASE_NAME = "trips_assistant_db_test6";
+=======
+	private static final String DATABASE_NAME = "trips_assistant_db_test2";
+>>>>>>> 820766ded428af807fe3d9dba527b6d041116b4c
+>>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
 	
 	private static final String TABLE_USERINFO = "userInfo";
 	private static final String COLUMN_USERINFO_ID = "uid";
@@ -163,6 +171,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		return entm;
 	}
 	
+<<<<<<< HEAD
 	public EntertainmentModel getEntmByName(String name){
 		SQLiteDatabase db = this.getReadableDatabase();
 		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where ename = ?";
@@ -180,6 +189,8 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 		return entm;
 	}
 	
+=======
+>>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
 	
 	public List<ScheduleModel> getAllHistory(){
 		List<ScheduleModel> sList = new ArrayList<ScheduleModel>();
