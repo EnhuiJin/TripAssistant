@@ -83,6 +83,7 @@ public class MainActivity extends FragmentActivity {
 //		}
 //		db.close();
 
+<<<<<<< HEAD
 	}
 	
 	
@@ -91,6 +92,8 @@ public class MainActivity extends FragmentActivity {
 		String period = periodET.getText().toString();
 		PreferenceManager.getDefaultSharedPreferences(this).edit().putString(UserInfoModel.PREF_PERIOD, period).commit();
 		
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	}
 
 	@Override

@@ -106,6 +106,7 @@
             android:label="@string/title_activity_profile" >
         </activity>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity
             android:name="com.example.tripassistant.AlertActivity"
             android:label="@string/title_activity_alert" >
@@ -127,6 +128,8 @@
                 android:value="com.example.tripassistant.MainActivity" />
         </activity>
 =======
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
         
          <activity
             android:name="com.example.tripassistant.EventDetails"
@@ -134,6 +137,9 @@
             android:parentActivityName="com.example.tripassistant.EntertainmentSelectActivity" >
         </activity>
         
+<<<<<<< HEAD
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
     </application>
 

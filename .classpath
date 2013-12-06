@@ -5,6 +5,7 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="lib"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/guava-14.0.1.jar"/>
@@ -15,6 +16,8 @@
 	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/slf4j-log4j12-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/Users/yaojiani/Desktop/tripAssistant2/TripAssistant/lib/uncommons-maths-1.2.2.jar"/>
 =======
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/lib/log4j-1.2.16.jar"/>
 	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/Users/GS/Downloads/mahout-distribution-0.7/lib/slf4j-log4j12-1.6.1.jar"/>
@@ -25,6 +28,9 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="lib" path="/Users/GS/GS/Study/Coser/Coding/Android/TripAssistant/lib/org.json.jar"/>
+<<<<<<< HEAD
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
