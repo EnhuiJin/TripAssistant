@@ -222,6 +222,7 @@ containing a value of this type.
     public static final class id {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public static final int action_settings=0x7f0a0019;
         public static final int button1=0x7f0a0008;
         public static final int button2=0x7f0a0007;
@@ -441,6 +442,70 @@ containing a value of this type.
     }
     public static final class string {
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+        public static final int action_settings=0x7f050023;
+        public static final int button1=0x7f05000d;
+        public static final int button2=0x7f05000c;
+        public static final int button3=0x7f05000e;
+        public static final int cart=0x7f050025;
+        public static final int current_location=0x7f050022;
+        public static final int detail_address=0x7f050020;
+        public static final int editText1=0x7f050013;
+        public static final int editText2=0x7f05001d;
+        public static final int editText3=0x7f05001b;
+        public static final int editText4=0x7f050017;
+        public static final int editText5=0x7f050018;
+        public static final int editText6=0x7f050019;
+        public static final int email=0x7f050015;
+        public static final int frameLayout1=0x7f050005;
+        public static final int home=0x7f050024;
+        public static final int hybrid=0x7f050004;
+        public static final int imageView1=0x7f050012;
+        public static final int listView1=0x7f05001e;
+        public static final int log=0x7f050027;
+        public static final int map=0x7f05001f;
+        public static final int none=0x7f050000;
+        public static final int normal=0x7f050001;
+        public static final int satellite=0x7f050002;
+        public static final int select_attraction=0x7f05000f;
+        public static final int select_entertainment=0x7f050010;
+        public static final int select_restaurant=0x7f050011;
+        public static final int separator=0x7f050021;
+        public static final int setting=0x7f050026;
+        public static final int spinner1=0x7f050016;
+        public static final int terrain=0x7f050003;
+        public static final int textView1=0x7f050006;
+        public static final int textView2=0x7f050007;
+        public static final int textView3=0x7f050008;
+        public static final int textView4=0x7f050009;
+        public static final int textView5=0x7f05000a;
+        public static final int textView6=0x7f05000b;
+        public static final int textView7=0x7f05001a;
+        public static final int textView8=0x7f05001c;
+        public static final int username=0x7f050014;
+    }
+    public static final class integer {
+        public static final int google_play_services_version=0x7f070000;
+    }
+    public static final class layout {
+        public static final int activity_cart=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_profile=0x7f030002;
+        public static final int activity_setting=0x7f030003;
+        public static final int attraction_select=0x7f030004;
+        public static final int entertainment_select=0x7f030005;
+        public static final int event_detail=0x7f030006;
+        public static final int restaurant_select=0x7f030007;
+    }
+    public static final class menu {
+        public static final int cart=0x7f0b0000;
+        public static final int main=0x7f0b0001;
+        public static final int profile=0x7f0b0002;
+        public static final int setting=0x7f0b0003;
+        public static final int ts_menu=0x7f0b0004;
+    }
+    public static final class string {
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
         public static final int City=0x7f060033;
         public static final int ConfirmPassword=0x7f060031;
         public static final int Email=0x7f060032;
@@ -566,6 +631,9 @@ containing a value of this type.
         public static final int title_section2=0x7f060027;
         public static final int title_section3=0x7f060028;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 =======
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376

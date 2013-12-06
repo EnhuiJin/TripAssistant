@@ -162,6 +162,7 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public UserInfoModel getUser(Long uid){
 		SQLiteDatabase db = this.getReadableDatabase();
 		UserInfoModel user =null;
@@ -198,6 +199,8 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 =======
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	public EntertainmentModel getEntm(long eid){
 		SQLiteDatabase db = this.getReadableDatabase();
 		String entm_get = "select * from " + TABLE_ENTERTAINMENT + " where eid = ?";
@@ -217,8 +220,11 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 =======
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 	public EntertainmentModel getEntmByName(String name){
@@ -241,6 +247,9 @@ public class TripAssistantDatabaseHelper extends SQLiteOpenHelper {
 =======
 >>>>>>> d97e03c469032786111c3345fcd415b4412bcd1d
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
+=======
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
 =======
 >>>>>>> 1034e85b5f7d96dd604b24fb2ffbc206407c6376
